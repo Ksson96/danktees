@@ -1,0 +1,1 @@
+web gunicorn ourtees.wsgi:application
