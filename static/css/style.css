@@ -1,8 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+body {
+    background-color: #F1E3D3;
+}
+
+#logo {
+    font-family: Playfair Display;
+    color: #8C5A63;
+}
+
+
 nav {
-    background-color:#fff;
-    filter:opacity(0.7);
-    
-    
+    background-color:#F1E3D3;
+    /* filter:opacity(0.8); */  
+}
+
+#nav-dropdown:focus {
+    box-shadow: none;
+    background-color: black;
+    color:#F1E3D3;
 }
 
 #home-img {
@@ -11,7 +27,5 @@ nav {
     background-position: left;
     background-size: cover;
     background-attachment: fixed;
-    height: 750px;
-    
-    
+    height: 800px;   
 }

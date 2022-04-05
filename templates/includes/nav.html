@@ -1,28 +1,54 @@
-<nav>
-    <div class="container-fluid">
-      <div class="row py-2">
-        <div class="col col-md-4">
-          <a href="">
-            <h2>DANK TEES</h2>
-          </a>
-        </div>
-        <div class="dropdown col col-md-4 d-flex align-items-center">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a id="logo" class="navbar-brand fs-5 ps-4" href="">DANK TEES</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Shop
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">T-Shirts</a></li>
-            <li><a class="dropdown-item" href="#">Hoodies</a></li>
-            <li><a class="dropdown-item" href="#">Headwear</a></li>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">T-Shirts</a>
+            <a class="dropdown-item" href="#">Hoodies</a>
+            <a class="dropdown-item" href="#">Headwear</a>
+          </div>
+        </li>
+      </ul>
+        <div class="float-right">
+            <a><i class="fa-solid fa-xl fa-magnifying-glass px-3 text-dark"></i></a>
+            <a><i class="fa-solid fa-xl fa-cart-shopping px-3 text-dark"></i></a>
+            <a><i class="fa-solid fa-xl fa-user px-3 pe-5 text-dark"></i></a>
+        </div>
+        
+      
+      <!-- <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form> -->
+    </div>
+  </nav>
+
+
+<!-- <nav class="navbar">
+    <a id="logo" class="navbar-brand" href="">DANK TEES</a>
+        <div class="dropdown">
+            <a class="nav-link dropdown-toggle" id="nav-dropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                Shop
+              </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">T-Shirts</a>
+            <a class="dropdown-item" href="#">Hoodies</a>
+            <a class="dropdown-item" href="#">Headwear</a>
           </ul>
         </div>
-        <div class="col col-md-4 d-flex align-items-center">
-          <ul class="list-group list-group-horizontal">
-            <li class="list-group-item"><i class="fa-solid fa-magnifying-glass"></i></li>
-            <li class="list-group-item"><i class="fa-solid fa-cart-shopping"></i></li>
-            <li class="list-group-item"><i class="fa-solid fa-user"></i></li>
-          </ul>
+        <div class="col col-md-4 d-flex align-items-center justify-content-end pe-5">
+            <a><i class="fa-solid fa-xl fa-magnifying-glass px-3 text-dark float-right mx-auto"></i></a>
+            <a><i class="fa-solid fa-xl fa-cart-shopping px-3 text-dark"></i></a>
+            <a><i class="fa-solid fa-xl fa-user px-3 pe-5 text-dark"></i></a>
         </div>
       </div>
     </div>
-  </nav>
+  </nav> -->
