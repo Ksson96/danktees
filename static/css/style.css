@@ -1,4 +1,17 @@
-header {
-    background-color:#000;
-    filter:opacity(0.7)
+nav {
+    background-color:#fff;
+    filter:opacity(0.7);
+    
+    
+}
+
+#home-img {
+    background-image: url("/static/img/pexels-pixabay-206434.jpg");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 750px;
+    
+    
 }
