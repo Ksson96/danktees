@@ -19,6 +19,7 @@
 | Database Key 	| Type       	| Relationship 	|
 |--------------	|------------	|--------------	|
 | name         	| Char (200) 	|              	|
+| type         	| Char (200) 	|              	|
 
 ## Order
 
@@ -30,15 +31,14 @@
 | name           	| Char  	|              	|
 | email          	| Char  	|              	|
 | phone_number   	| Char  	|              	|
-| country        	| Char  	|              	|
-| city           	| Char  	|              	|
-| postal_code    	| Char  	|              	|
 | street_address 	| Char  	|              	|
+| postal_code    	| Char  	|              	|
 | co             	| Char  	|              	|
+| city        	  | Char  	|              	|
+| country        	| Char  	|              	|
 | delivery_cost  	| Float 	|              	|
 | order_total    	| Float 	|              	|
 | grand_total    	| Float 	|              	|
-
 
 ## Order Line Item
 
