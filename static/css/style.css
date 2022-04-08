@@ -1,31 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Playfair+Display&display=swap');
 
 body {
-    background-color: #F1E3D3;
+    background-color:#F8F4E3 ;
+}
+
+h1, h2 {
+    font-family: Playfair Display;
+}
+
+h3, h4, h5 {
+    font-family: Common Garamond;
 }
 
 #logo {
-    font-family: Playfair Display;
-    color: #8C5A63;
+    color: rgb(99, 57, 65)
 }
 
 
 nav {
-    background-color:#F1E3D3;
+    background-color:#D4CDC3;
+    
     /* filter:opacity(0.8); */  
 }
 
 #nav-dropdown:focus {
     box-shadow: none;
     background-color: black;
-    color:#F1E3D3;
+    color:#ADBF97;
 }
 
 #home-img {
-    background-image: url("/static/img/pexels-pixabay-206434.jpg");
+    background-image: url("/static/img/bg-image.jpg");
     background-repeat: no-repeat;
-    background-position: left;
+    background-position: center;
     background-size: cover;
     background-attachment: fixed;
     height: 800px;   
+}
+
+.category-img {
+    transition: transform .2s;
+}
+
+.category-img:hover {
+    transform: scale(1.05);
+}
+
+.newsletter {
+    background-color: #7DCFB6
 }
