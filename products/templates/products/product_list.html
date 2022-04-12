@@ -5,6 +5,16 @@
 {% include 'includes/nav.html' %}
 
 <div class="container">
+    <div class="row py-4">
+        <div class="col col-md-8 text-center">
+            <a href="{% url 'product_list' %}?category=tshirt">T-shirts</a>
+            <a href="{% url 'product_list' %}?category=hoodies">Hoodies</a>
+            <a href="{% url 'product_list' %}?category=headwear">Headwear</a>
+        </div>
+        <div class="col col-md-4">
+            
+        </div>
+    </div>
     <div class="row">
         {% for product in products %}
         <div class="col col-md-4">

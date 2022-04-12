@@ -32,7 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-ksson96-ourtees-qzphv6bz6zj.ws-eu39.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-ksson96-ourtees-qzphv6bz6zj.ws-eu39a.gitpod.io']
 
 # Application definition
 
