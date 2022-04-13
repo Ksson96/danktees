@@ -4,8 +4,9 @@ from .models import Product, Category
 
 def product_list(request):
     """ All products """
-    categories = None
     products = Product.objects.all()
+    category = None
+    
     if request.GET:
         category = request.GET.get('category')
         categories = Category.objects.get(category_type=category)

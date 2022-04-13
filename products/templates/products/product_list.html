@@ -6,6 +6,11 @@
 
 <div class="container">
     <div class="row py-4">
+        {% if category %}
+        <h3>Showing all {{ products.name }}</h3>
+        {% else %}
+        <h3>Showing products for all categories</h3>
+        {% endif %}
         <div class="col col-md-8 text-center">
             <a href="{% url 'product_list' %}?category=tshirt">T-shirts</a>
             <a href="{% url 'product_list' %}?category=hoodies">Hoodies</a>
