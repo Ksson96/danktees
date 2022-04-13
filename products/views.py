@@ -23,9 +23,14 @@ def product_list(request):
 def product_details(request, pk):
     """ Single Product """
     product = get_object_or_404(Product, pk=pk)
+    sizes = product.size.all()
+
+    if len(sizes) == 0:
+        sizes = None
 
     context = {
-        'product': product
+        'product': product,
+        'sizes': sizes
     }
 
     return render(request, 'products/product_details.html', context)
