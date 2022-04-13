@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-expand">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item px-2">
+                <a class="nav-link" href="{% url 'product_list' %}">All categories</a>
+            </li>
+            <li class="nav-item px-2">
+                <a class="nav-link" href="{% url 'product_list' %}?category=tshirt">T-shirts</a>
+            </li>
+            <li class="nav-item px-2">
+                <a class="nav-link" href="{% url 'product_list' %}?category=hoodies">Hoodies</a>
+            </li>
+            <li class="nav-item px-2">
+                <a class="nav-link" href="{% url 'product_list' %}?category=headwear">Headwear</a>
+            </li>
+        </ul>
+    </nav>
+</div>

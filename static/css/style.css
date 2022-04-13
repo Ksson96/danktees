@@ -49,3 +49,7 @@ nav {
 .newsletter {
     background-color: #7DCFB6
 }
+
+.product-img {
+    border: 1px black dotted;
+}
