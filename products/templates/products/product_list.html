@@ -3,7 +3,7 @@
 
 {% block content %}
 {% include 'includes/nav.html' %}
-
+{% include 'includes/product_nav.html' %}
 <div class="container">
     <div class="row py-4">
         {% if category %}
@@ -23,7 +23,9 @@
     <div class="row">
         {% for product in products %}
         <div class="col col-md-4">
-            <img class="img-fluid" src="{{ product.image_url }}" alt="">
+            <a href="{% url 'product' product.pk %}">
+                <img class="img-fluid" src="{{ product.image_url }}" alt="">
+            </a>
             <h3>{{ product.name }}</h3>
             <p> {{ product.description }} </p>
         </div>
