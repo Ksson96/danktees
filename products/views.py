@@ -23,14 +23,18 @@ def product_list(request):
 def product_details(request, pk):
     """ Single Product """
     product = get_object_or_404(Product, pk=pk)
+    related_products = Product.objects.filter(
+        category__name__contains=product.category.name).exclude(
+            pk=product.pk)
+    
     sizes = product.size.all()
-
     if len(sizes) == 0:
         sizes = None
 
     context = {
         'product': product,
-        'sizes': sizes
+        'sizes': sizes,
+        'related_products': related_products,
     }
 
     return render(request, 'products/product_details.html', context)
