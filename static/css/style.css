@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Playfair+Display&display=swap');
 
 body {
-    background-color:#F8F4E3 ;
+    background-color:#Fff ;
 }
 
 h1, h2 {
@@ -12,14 +12,26 @@ h3, h4, h5 {
     font-family: Common Garamond;
 }
 
+a {
+    text-decoration: none;
+}
+
 #logo {
-    color: rgb(99, 57, 65)
+    color: #fff;
+}
+
+.extra {
+    color: #fff;
+}
+
+.newsletter-form {
+    --bs-gutter-x: 1.5rem;
 }
 
 
 nav {
-    background-color:#D4CDC3;
-    
+    background-color:#343540;
+    /* border-bottom: 1px #633941 solid; */
     /* filter:opacity(0.8); */  
 }
 
@@ -47,9 +59,16 @@ nav {
 }
 
 .newsletter {
-    background-color: #7DCFB6
+    background-color: #63C7B2;
 }
 
 .product-img {
-    border: 1px black dotted;
+    border: 1px #633941 solid;
+}
+.card-body {
+    background-color:#CCDBDC;
+    /* border-top:1px #633941 solid; */
+}
+.recom {
+    background-color: #fff;
 }

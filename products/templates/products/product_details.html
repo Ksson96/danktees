@@ -5,7 +5,7 @@
 {% include 'includes/nav.html' %}
 
 <div class="container">
-    <div class="row pt-5">
+    <div class="row pt-5 pb-3">
         <div class="col-12 col-md-5">
             <img class="product-img img-fluid" src="{{ product.image_url }}" alt="">
         </div>
@@ -17,9 +17,9 @@
                 </div>
             </div>
             <hr>
-            <h4 class="pt-2"><strong>${{ product.price }}</strong></h4>
+            <h4 class="pt-1"><strong>${{ product.price }}</strong></h4>
             <form action="">
-                <div class="row pt-2">
+                <div class="row-cols pt-5">
                     <div class="col-sm-2 pb-2 form-group">
                         <label for="size_select">Size:</label>
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select">
@@ -33,26 +33,40 @@
                             {% endfor %}
                         </select>
                     </div>
+                    <div class="col-1 form-group">
+                        <div>
+                            <label for="quantity" id="quantity" name="quantity">Quantity</label>
+                            <input class="form-control text-center" type="text" id="quantity" value="1">
+                        </div>
                     </div>
-                    <div class="row">
-                    <div class="col-auto pt-4 form-group">
-                        <!-- <label for="quantity" id="quantity" name="quantity">Quantity</label> -->
-                        <input class="form-control text-center" type="text" id="quantity" value="1">
-                        
-                    </div>
-                    <div class="col-auto">
-                        <button type="button" class="btn btn-lg btn-dark">Add to cart</button>
-                    </div>
+                </div>
+                <div class="col-auto pt-4 form-group">
+                    <button type="button" class="btn btn-lg btn-dark">Add to cart</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<div class="row">
+<hr>
+<div class="container-fluid">
+    <div class="row pb-5">
+        <div class="col-12 px-0 text-center py-2">
+            <h4>You may also be interested in...</h4>
+        </div>
+        {% for related in related_products %}
+        <div class="col-6 col-md-2 text-center">
+            <div class="card category-img">
+                <img class=" img-fluid" src="{{ related.image_url }}" alt="">
+            <div class="card-body">
+                <h5 class="card-title">{{ related.name }}</h5>
+                <span class="card-text"> {{ related.price }}</span>
+                <a href="{% url 'product' related.pk %}"></a>
+            </div>
+        </div>
+            
+        </div>
+        {% endfor %}
+    </div>
 </div>
-</div>
-
-
-
-
+{% include 'includes/newsletter.html' %}
 {% endblock %}

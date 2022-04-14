@@ -3,7 +3,6 @@
 
 {% block content %}
 {% include 'includes/nav.html' %}
-{% include 'includes/product_nav.html' %}
 <div class="container">
     <div class="row py-4">
         {% if category %}
@@ -28,9 +27,10 @@
             </a>
             <h3>{{ product.name }}</h3>
             <p> {{ product.description }} </p>
+            <span>${{ product.price }}</span>
         </div>
         {% endfor %}
     </div>
 </div>
-
+{% include 'includes/newsletter.html' %}
 {% endblock %}
