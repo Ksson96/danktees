@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 from .models import Product, Category
 
 
@@ -9,8 +9,9 @@ def product_list(request):
     
     if request.GET:
         category = request.GET.get('category')
-        categories = get_object_or_404(Category, category_type=category)
-        products = categories.product_category.all()
+        # categories = get_object_or_404(Category, category_type=category)
+        # products = categories.product_category.all()
+        products = get_list_or_404(Product, category=category)
 
 
     # if request.GET:
