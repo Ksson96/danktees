@@ -3,8 +3,8 @@ from django.db import models
 
 class Category(models.Model):
     """Category Model"""
-    name = models.CharField(max_length=200)
-    category_type = models.CharField(max_length=200, blank=True, null=True)
+    category_type = models.CharField(primary_key=True, max_length=200, default='')
+    name = models.CharField(max_length=200, blank=True, null=True)
 
     def __str__(self):
         return self.name

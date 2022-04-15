@@ -9,8 +9,14 @@ def product_list(request):
     
     if request.GET:
         category = request.GET.get('category')
-        categories = Category.objects.get(category_type=category)
+        categories = get_object_or_404(Category, category_type=category)
         products = categories.product_category.all()
+
+
+    # if request.GET:
+    #     category = request.GET.get('category')
+    #     categories = Category.objects.get(category_type=category)
+    #     products = categories.product_category.all()
 
     context = {
         'products': products,
