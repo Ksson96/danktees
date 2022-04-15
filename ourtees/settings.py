@@ -32,7 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['ourtees.herokuapp.com', 'localhost']
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-ksson96-ourtees-qzphv6bz6zj.ws-eu39a.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-ksson96-ourtees-qzphv6bz6zj.ws-eu40.gitpod.io']
 
 # Application definition
 
