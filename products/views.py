@@ -9,8 +9,6 @@ def product_list(request):
     
     if request.GET:
         category = request.GET.get('category')
-        # categories = get_object_or_404(Category, category_type=category)
-        # products = categories.product_category.all()
         products = get_list_or_404(Product, category=category)
 
 
