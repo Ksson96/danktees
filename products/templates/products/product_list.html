@@ -6,14 +6,25 @@
 <div class="container">
     <div class="row py-4">
         {% if category %}
-        <h3>Showing all {{ products.name }}</h3>
+        <h3 class="fw-bold">{{ current_category.name }}</h3>
         {% else %}
-        <h3>Showing products for all categories</h3>
+        <h3 class="fw-bold">All Products</h3>
         {% endif %}
-        <div class="col col-md-8 text-center">
-            <a href="{% url 'product_list' %}?category=tshirt">T-shirts</a>
-            <a href="{% url 'product_list' %}?category=hoodies">Hoodies</a>
-            <a href="{% url 'product_list' %}?category=headwear">Headwear</a>
+        <div class="col col-md-8 pt-2">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link {% if not category %} active {% endif %}" href="{% url 'product_list' %}">All</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if category == 'tshirt' %} active {% endif %}" href="{% url 'product_list' %}?category=tshirt">T-shirts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if category == 'hoodies' %} active {% endif %}" href="{% url 'product_list' %}?category=hoodies">Hoodies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if category == 'headwear' %} active {% endif %}" href="{% url 'product_list' %}?category=headwear">Headwear</a>
+                </li>
+            </ul>
         </div>
         <div class="col col-md-4">
             
@@ -21,13 +32,15 @@
     </div>
     <div class="row">
         {% for product in products %}
-        <div class="col col-md-4">
+        <div class="col col-md-4 px-5 pb-2 category-img">
             <a href="{% url 'product' product.pk %}">
                 <img class="img-fluid" src="{{ product.image_url }}" alt="">
+                <h4 class="pt-1">{{ product.name }}</h4>
+                <p class="text-muted"> - {{ product.description }}</p>
             </a>
-            <h3>{{ product.name }}</h3>
-            <p> {{ product.description }} </p>
-            <span>${{ product.price }}</span>
+            <button type="button" class="btn btn-sm btn-dark">Add to cart</button>
+            <strong><span class="px-2">${{ product.price }}</span></strong>
+            <hr>
         </div>
         {% endfor %}
     </div>

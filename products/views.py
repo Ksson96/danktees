@@ -6,20 +6,17 @@ def product_list(request):
     """ All products """
     products = Product.objects.all()
     category = None
-    
+    current_category = None
+
     if request.GET:
         category = request.GET.get('category')
         products = get_list_or_404(Product, category=category)
-
-
-    # if request.GET:
-    #     category = request.GET.get('category')
-    #     categories = Category.objects.get(category_type=category)
-    #     products = categories.product_category.all()
+        current_category = get_object_or_404(Category, category_type=category)
 
     context = {
         'products': products,
-        'category': category
+        'category': category,
+        'current_category': current_category,
     }
 
     return render(request, 'products/product_list.html', context)
@@ -29,7 +26,7 @@ def product_details(request, pk):
     """ Single Product """
     product = get_object_or_404(Product, pk=pk)
     related_products = Product.objects.filter(
-        category__name__contains=product.category.name).exclude(
+        theme__theme__contains=product.theme.theme).exclude(
             pk=product.pk)
     
     sizes = product.size.all()

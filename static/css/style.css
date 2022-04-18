@@ -12,8 +12,9 @@ h3, h4, h5 {
     font-family: Common Garamond;
 }
 
-a {
+a,a:hover,.nav-link {
     text-decoration: none;
+    color: inherit;
 }
 
 #logo {
@@ -66,9 +67,10 @@ nav {
     border: 1px #633941 solid;
 }
 .card-body {
-    background-color:#CCDBDC;
-    /* border-top:1px #633941 solid; */
+    background-color:#F4F1DE;
 }
+
+
 .recom {
     background-color: #fff;
 }

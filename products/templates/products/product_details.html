@@ -55,14 +55,15 @@
         </div>
         {% for related in related_products %}
         <div class="col-6 col-md-2 text-center">
+            <a href="{% url 'product' related.pk %}">
             <div class="card category-img">
                 <img class=" img-fluid" src="{{ related.image_url }}" alt="">
             <div class="card-body">
-                <h5 class="card-title">{{ related.name }}</h5>
-                <span class="card-text"> {{ related.price }}</span>
-                <a href="{% url 'product' related.pk %}"></a>
+                <h5 class="card-title text-muted fs-6">{{ related.name }}</h5>
+                <strong><span class="card-text "> ${{ related.price }}</span></strong>
             </div>
         </div>
+    </a>
             
         </div>
         {% endfor %}
