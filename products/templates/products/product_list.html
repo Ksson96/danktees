@@ -16,13 +16,13 @@
                     <a class="nav-link {% if not category %} active {% endif %}" href="{% url 'product_list' %}">All</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if category == 'tshirt' %} active {% endif %}" href="{% url 'product_list' %}?category=tshirt">T-shirts</a>
+                    <a class="nav-link {% if category == 'tshirt' %} active {% endif %}" href="{% url 'product_list' %}?theme={{ theme }}&category=tshirt">T-shirts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if category == 'hoodies' %} active {% endif %}" href="{% url 'product_list' %}?category=hoodies">Hoodies</a>
+                    <a class="nav-link {% if category == 'hoodies' %} active {% endif %}" href="{% url 'product_list' %}?theme={{ theme }}&category=hoodies">Hoodies</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if category == 'headwear' %} active {% endif %}" href="{% url 'product_list' %}?category=headwear">Headwear</a>
+                    <a class="nav-link {% if category == 'headwear' %} active {% endif %}" href="{% url 'product_list' %}?theme={{ theme }}&category=headwear">Headwear</a>
                 </li>
             </ul>
         </div>
@@ -32,24 +32,25 @@
         <div class="col-md-8">
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a href="{% url 'product_list' %}?theme=Gaming" class="nav-link {% if theme == 'gaming' %} active {% endif %}">Gaming</a>
+                    <a href="{% url 'product_list' %}?{% if category %}category={{category}}&{% endif %}theme=Gaming" class="nav-link {% if theme == 'gaming' %} active {% endif %}">Gaming</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'product_list' %}?theme=Retro" class="nav-link">Retro</a>
+                    <a href="{% url 'product_list' %}?{% if category %}category={{category}}&{% endif %}theme=Retro" class="nav-link">Retro</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'product_list' %}?theme=simplistic" class="nav-link">Simplistic</a>
+                    <a href="{% url 'product_list' %}?{% if category %}category={{category}}&{% endif %}theme=Simplistic" class="nav-link">Simplistic</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'product_list' %}?theme=artistic" class="nav-link">Artistic</a>
+                    <a href="{% url 'product_list' %}?{% if category %}category={{category}}&{% endif %}theme=Artistic" class="nav-link">Artistic</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'product_list' %}?theme=memes" class="nav-link">Memes</a>
+                    <a href="{% url 'product_list' %}?{% if category %}category={{category}}&{% endif %}theme=Memes" class="nav-link">Memes</a>
                 </li>
             </ul>
         </div>
     </div>
     <div class="row">
+        {% if products %}
         {% for product in products %}
         <div class="col col-md-4 px-5 pb-2 category-img">
             <a href="{% url 'product' product.pk %}">
@@ -62,7 +63,10 @@
             <hr>
         </div>
         {% endfor %}
-    </div>
+        {% else %}
+        <h1>NO MATCHES</h1>
+        {% endif %}
+    </div> 
 </div>
 {% include 'includes/newsletter.html' %}
 {% endblock %}
