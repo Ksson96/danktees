@@ -1,0 +1,1 @@
+[{"model": "products.category", "pk": "headwear", "fields": {"name": "Headwear"}}, {"model": "products.category", "pk": "hoodies", "fields": {"name": "Hoodies"}}, {"model": "products.category", "pk": "nocat", "fields": {"name": "No Category"}}, {"model": "products.category", "pk": "tshirt", "fields": {"name": "T-Shirt"}}]

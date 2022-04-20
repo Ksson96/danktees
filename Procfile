@@ -1,1 +1,1 @@
-web gunicorn ourtees.wsgi:application
+web gunicorn danktees.wsgi:application

@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ourtees.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['danktees.herokuapp.com', 'localhost']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-ksson96-ourtees-qzphv6bz6zj.ws-eu40.gitpod.io']
 
@@ -61,7 +61,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'ourtees.urls'
+ROOT_URLCONF = 'danktees.urls'
 
 TEMPLATES = [
     {
@@ -81,7 +81,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ourtees.wsgi.application'
+WSGI_APPLICATION = 'danktees.wsgi.application'
 
 SITE_ID = 1
 
