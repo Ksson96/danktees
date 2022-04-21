@@ -1,34 +1,32 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
-from .models import Product, Category
+from .models import Product, Category, Theme
 from django.db.models import Q
 
 
-def product_list(request):
+def product_list(request, category_type):
     """ All products """
-    products = Product.objects.all()
-    category = ""
-    current_category = None
+    category = category_type
     theme = ""
 
+    if category_type == 'all':
+        products = Product.objects.all()
+    else:
+        category = get_object_or_404(Category, category_type=category_type)
+        products = category.product_category.all()
+
     if request.GET:
-
-        if 'category' in request.GET:
-            category = request.GET['category']
-            # products = get_list_or_404(Product, category=category)
-            current_category = get_object_or_404(Category, category_type=category)
-
         if 'theme' in request.GET:
             theme = request.GET.get('theme')
-            # products = products.filter(theme__theme__contains=theme)
+            products = products.filter(theme__theme__contains=theme)
 
-        query_filters = Q(theme__theme__contains=theme) & Q(category__category_type__contains=category)
-        products = products.filter(query_filters)
+        # query_filters = Q(theme__theme__contains=theme) & Q(category__category_type__contains=category)
+        # products = products.filter(query_filters)
 
     context = {
         'products': products,
         'category': category,
-        'current_category': current_category,
         'theme': theme,
+        'category_type': category_type,
     }
 
     return render(request, 'products/product_list.html', context)

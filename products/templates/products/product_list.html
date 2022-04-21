@@ -3,56 +3,63 @@
 
 {% block content %}
 {% include 'includes/nav.html' %}
-<div class="container">
-    <div class="row py-4">
-        {% if category %}
-        <h3 class="fw-bold">{{ current_category.name }}</h3>
+<div class="container-lg">
+    <div class="row pt-4">
+        {% if theme and category %}    
+        <h3 class="fw-bold">{{ theme }} {{ category.name }}</h3>
         {% else %}
-        <h3 class="fw-bold">All Products</h3>
+        <h3 class="fw-bold">All {{ theme }} Products</h3>
         {% endif %}
-        <div class="col col-md-8 pt-2">
+        <div class="col-12 col-md-8 pt-2">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link {% if not category %} active {% endif %}" href="{% url 'product_list' %}">All</a>
+                    <a class="nav-link {% if category_type == 'all' %} active {% endif %}" href="{% url 'product_list' %}all{% if theme %}?theme={{theme}}{% endif %}">All</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if category == 'tshirt' %} active {% endif %}" href="{% url 'product_list' %}?theme={{ theme }}&category=tshirt">T-shirts</a>
+                    <a class="nav-link {% if category_type == 'tshirt' %} active {% endif %}" href="{% url 'product_list' %}tshirt{% if theme %}?theme={{theme}}{% endif %}">T-shirts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if category == 'hoodies' %} active {% endif %}" href="{% url 'product_list' %}?theme={{ theme }}&category=hoodies">Hoodies</a>
+                    <a class="nav-link {% if category_type == 'hoodies' %} active {% endif %}" href="{% url 'product_list' %}hoodies{% if theme %}?theme={{theme}}{% endif %}">Hoodies</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if category == 'headwear' %} active {% endif %}" href="{% url 'product_list' %}?theme={{ theme }}&category=headwear">Headwear</a>
+                    <a class="nav-link {% if category_type == 'headwear' %} active {% endif %}" href="{% url 'product_list' %}headwear{% if theme %}?theme={{theme}}{% endif %}">Headwear</a>
                 </li>
             </ul>
         </div>
-        <div class="col col-md-4">
-            
-        </div>
-        <div class="col-md-8">
+        <div class="col-12 col-md-8">
             <ul class="nav nav-pills">
                 <li class="nav-item">
-                    <a href="{% url 'product_list' %}?{% if category %}category={{category}}&{% endif %}theme=Gaming" class="nav-link {% if theme == 'gaming' %} active {% endif %}">Gaming</a>
+                    <a href="{% url 'product_list'  %}{{category_type}}?theme=Gaming" class="nav-link {% if theme == 'gaming' %} active {% endif %}">Gaming</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'product_list' %}?{% if category %}category={{category}}&{% endif %}theme=Retro" class="nav-link">Retro</a>
+                    <a href="{% url 'product_list' %}{{category_type}}?theme=Retro" class="nav-link">Retro</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'product_list' %}?{% if category %}category={{category}}&{% endif %}theme=Simplistic" class="nav-link">Simplistic</a>
+                    <a href="{% url 'product_list' %}{{category_type}}?theme=Simplistic" class="nav-link">Simplistic</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'product_list' %}?{% if category %}category={{category}}&{% endif %}theme=Artistic" class="nav-link">Artistic</a>
+                    <a href="{% url 'product_list' %}{{category_type}}?theme=Artistic" class="nav-link">Artistic</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'product_list' %}?{% if category %}category={{category}}&{% endif %}theme=Memes" class="nav-link">Memes</a>
+                    <a href="{% url 'product_list' %}{{category_type}}?theme=Memes" class="nav-link">Memes</a>
                 </li>
             </ul>
         </div>
+        <div class="col-12 col-md-7 offset-md-5 pt-md-0">
+            <ul class="list-group list-group-horizontal">
+                <strong><li class="list-group-item py-1">Sort By</li></strong>
+                <a href="{% url 'product_list' %}{% if category or theme %}&{% else %}?{% endif %}sortby=price" class="list-group-item py-1">Price</a>
+                <a href="{% url 'product_list' %}{% if category or theme %}&{% else %}?{% endif %}sortby=name" class="list-group-item py-1">Name a-Z</a>
+                <a href="{% url 'product_list' %}{% if category or theme %}&{% else %}?{% endif %}sortby=rating" class="list-group-item py-1">Rating</a>
+                <a href="{% url 'product_list' %}{% if category or theme %}&{% else %}?{% endif %}sortby=date" class="list-group-item py-1">Latest</a>
+              </ul>     
+        </div>
     </div>
+    <hr>
     <div class="row">
         {% if products %}
         {% for product in products %}
-        <div class="col col-md-4 px-5 pb-2 category-img">
+        <div class="col-6 col-md-4 px-5 pb-2 category-img">
             <a href="{% url 'product' product.pk %}">
                 <img class="img-fluid" src="{{ product.image_url }}" alt="">
                 <h4 class="pt-1">{{ product.name }}</h4>
