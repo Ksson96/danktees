@@ -5,15 +5,12 @@
 {% include 'includes/nav.html' %}
 <div class="container-lg">
     <div class="row pt-4">
-        {% if theme and category %}    
-        <h3 class="fw-bold">{{ theme }} {{ category.name }}</h3>
-        {% else %}
-        <h3 class="fw-bold">All {{ theme }} Products</h3>
-        {% endif %}
-        <div class="col-12 col-md-8 pt-2">
+       
+        <div class="col-12 pt-2">
             <ul class="nav nav-tabs">
+                <span class="pt-2 px-3 text-muted fw-bold">Category:</span>
                 <li class="nav-item">
-                    <a class="nav-link {% if category_type == 'all' %} active {% endif %}" href="{% url 'product_list' %}all{% if theme %}?theme={{theme}}{% endif %}">All</a>
+                    <a class="nav-link {% if category_type == 'all' %} active  {% endif %}" href="{% url 'product_list' %}all{% if theme %}?theme={{theme}}{% endif %}">All</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {% if category_type == 'tshirt' %} active {% endif %}" href="{% url 'product_list' %}tshirt{% if theme %}?theme={{theme}}{% endif %}">T-shirts</a>
@@ -26,37 +23,59 @@
                 </li>
             </ul>
         </div>
-        <div class="col-12 col-md-8">
+        <div class="col-12 col-lg-8">
             <ul class="nav nav-pills">
+                <span class="pt-2 px-4 text-muted fw-bold">Theme:</span>
                 <li class="nav-item">
-                    <a href="{% url 'product_list'  %}{{category_type}}?theme=Gaming" class="nav-link {% if theme == 'gaming' %} active {% endif %}">Gaming</a>
+                    <a href="{% url 'product_list'  %}{{category_type}}" class="theme-nav nav-link">All</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'product_list' %}{{category_type}}?theme=Retro" class="nav-link">Retro</a>
+                    <a href="{% url 'product_list'  %}{{category_type}}?theme=Gaming" class="theme-nav nav-link {% if theme == 'Gaming' %} active fw-bold{% endif %}">Gaming</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'product_list' %}{{category_type}}?theme=Simplistic" class="nav-link">Simplistic</a>
+                    <a href="{% url 'product_list' %}{{category_type}}?theme=Retro" class="theme-nav nav-link {% if theme == 'Retro' %} active fw-bold{% endif %}">Retro</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'product_list' %}{{category_type}}?theme=Artistic" class="nav-link">Artistic</a>
+                    <a href="{% url 'product_list' %}{{category_type}}?theme=Simplistic" class="theme-nav nav-link {% if theme == 'Simplistic' %} active fw-bold{% endif %}">Simplistic</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'product_list' %}{{category_type}}?theme=Memes" class="nav-link">Memes</a>
+                    <a href="{% url 'product_list' %}{{category_type}}?theme=Artistic" class="theme-nav nav-link {% if theme == 'Artistic' %} active fw-bold{% endif %}">Artistic</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'product_list' %}{{category_type}}?theme=Memes" class="theme-nav {% if theme == 'Memes' %} active fw-bold{% endif %} nav-link">Memes</a>
                 </li>
             </ul>
         </div>
-        <div class="col-12 col-md-7 offset-md-5 pt-md-0">
+        
+            <form class="col-8 col-lg-4 ps-3" action="{% url 'product_list' %}all" method="GET">
+                <label for="search_p" class="col-form-label-sm"></label>
+                <div class="input-group">
+                    <button type="submit" class="btn btn-dark">Search</button>
+                    <input type="text" id="search_p" class="form-control" name="search" placeholder="">
+                    
+                </div>
+            </form>
+</div>
+<hr>
+    <div class="row">
+        
+        <div class="col col-md-4 pb-4">
+            {% if theme or category %}    
+            <h3 class="fw-bold ">Displaying all <u>{{ theme }} {{ category.name }}</u></h3>
+            {% elif search_query %}
+            <h3 class="fw-bold ">Displaying all results for "{{ search_query }}"</h3>
+            {% else %}
+            <h3 class="fw-bold ">Displaying all <u>{{ theme }}</u> Products</h3>
+            {% endif %}
+        </div>
+        <div class="col-12 col-md-4 offset-md-4">
             <ul class="list-group list-group-horizontal">
                 <strong><li class="list-group-item py-1">Sort By</li></strong>
-                <a href="{% url 'product_list' %}{% if category or theme %}&{% else %}?{% endif %}sortby=price" class="list-group-item py-1">Price</a>
-                <a href="{% url 'product_list' %}{% if category or theme %}&{% else %}?{% endif %}sortby=name" class="list-group-item py-1">Name a-Z</a>
-                <a href="{% url 'product_list' %}{% if category or theme %}&{% else %}?{% endif %}sortby=rating" class="list-group-item py-1">Rating</a>
-                <a href="{% url 'product_list' %}{% if category or theme %}&{% else %}?{% endif %}sortby=date" class="list-group-item py-1">Latest</a>
+                <a href="{% url 'product_list' %}{{ category_type }}{% if theme %}?theme={{ theme }}&{% else %}?{% endif %}sortby=price" class="list-group-item py-1">Price</a>
+                <a href="{% url 'product_list' %}{{ category_type }}{% if theme %}?theme={{ theme }}&{% else %}?{% endif %}sortby=name" class="list-group-item py-1">Name a-Z</a>
+                <a href="{% url 'product_list' %}{{ category_type }}{% if theme %}?theme={{ theme }}&{% else %}?{% endif %}sortby=rating" class="list-group-item py-1">Rating</a>
               </ul>     
         </div>
-    </div>
-    <hr>
-    <div class="row">
         {% if products %}
         {% for product in products %}
         <div class="col-6 col-md-4 px-5 pb-2 category-img">
@@ -67,6 +86,8 @@
             </a>
             <button type="button" class="btn btn-sm btn-dark">Add to cart</button>
             <strong><span class="px-2">${{ product.price }}</span></strong>
+            
+            <span class="me-0">{% if product.rating %}{{ product.rating }}{% else %}0{% endif %} / 5</span>
             <hr>
         </div>
         {% endfor %}

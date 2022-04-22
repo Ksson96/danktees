@@ -17,6 +17,16 @@ a,a:hover,.nav-link {
     color: inherit;
 }
 
+.nav-link:hover {
+    text-shadow:0px 0px 1px black;
+    color:inherit;
+}
+
+.theme-nav.active {
+    background-color: #fff !important;
+    color:#343540 !important;
+}
+
 #logo {
     color: #fff;
 }
@@ -69,7 +79,6 @@ nav {
 .card-body {
     background-color:#F4F1DE;
 }
-
 
 .recom {
     background-color: #fff;
