@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
     'home',
     'products',
 ]
@@ -95,6 +96,11 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
+CRISPY_CLASS_CONVERTERS = {
+    'textinput': "form-control",
+    'passwordinput': "form-control",
+    'checkboxinput': "form-check-input"
+    }
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
