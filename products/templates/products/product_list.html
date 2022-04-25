@@ -71,9 +71,9 @@
         <div class="col-12 col-md-4 offset-md-4">
             <ul class="list-group list-group-horizontal">
                 <strong><li class="list-group-item py-1">Sort By</li></strong>
-                <a href="{% url 'product_list' %}{{ category_type }}{% if theme %}?theme={{ theme }}&{% else %}?{% endif %}sortby=price" class="list-group-item py-1">Price</a>
-                <a href="{% url 'product_list' %}{{ category_type }}{% if theme %}?theme={{ theme }}&{% else %}?{% endif %}sortby=name" class="list-group-item py-1">Name a-Z</a>
-                <a href="{% url 'product_list' %}{{ category_type }}{% if theme %}?theme={{ theme }}&{% else %}?{% endif %}sortby=rating" class="list-group-item py-1">Rating</a>
+                <a href="{% url 'product_list' %}{{ category_type }}{% if theme %}?theme={{ theme }}&{% elif search_query %}?search={{ search_query }}&{% else %}?{% endif %}sortby=price" class="list-group-item py-1">Price</a>
+                <a href="{% url 'product_list' %}{{ category_type }}{% if theme %}?theme={{ theme }}&{% elif search_query %}?search={{ search_query }}&{% else %}?{% endif %}sortby=name" class="list-group-item py-1">Name a-Z</a>
+                <a href="{% url 'product_list' %}{{ category_type }}{% if theme %}?theme={{ theme }}&{% elif search_query %}?search={{ search_query }}&{% else %}?{% endif %}sortby=rating" class="list-group-item py-1">Rating</a>
               </ul>     
         </div>
         {% if products %}
