@@ -32,7 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['danktees.herokuapp.com', 'localhost']
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-ksson96-danktees-w46xu2iu5gj.ws-eu41.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-ksson96-danktees-w46xu2iu5gj.ws-eu42.gitpod.io']
 
 # Application definition
 
@@ -48,8 +48,10 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'crispy_forms',
+    'django_countries',
     'home',
     'products',
+    'profile',
 ]
 
 MIDDLEWARE = [
@@ -90,15 +92,15 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
 CRISPY_CLASS_CONVERTERS = {
-    'textinput': "form-control",
-    'passwordinput': "form-control",
+    'textinput': "form-control my-2",
+    'passwordinput': "form-control my-2",
     'checkboxinput': "form-check-input"
     }
 
