@@ -24,7 +24,7 @@
           <a class="nav-link fa-solid fa-xl fa-user text-light" role="button" id="dropdownprofile" data-bs-toggle="dropdown" aria-expanded="false"></a>
           <ul class="dropdown-menu dropdown-menu" aria-labelledby="dropdownprofile">
             {% if request.user.is_authenticated %}
-            <li><a href="#" class="dropdown-item">Profile</a></li>
+            <li><a href="{% url 'profile' %}" class="dropdown-item">Profile</a></li>
             <li><a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a></li>
             {% else %}
             <li><a href="{% url 'account_login' %}" class="dropdown-item">Login</a></li>
