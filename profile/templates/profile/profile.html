@@ -1,5 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
+{% include "includes/nav.html" %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+    <div class="row pt-5">
+        <div class="col-2">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-light bg-dark">Personal Information</li>
+                <li class="list-group-item text-light bg-secondary">Order History</li>
+            </ul>
+            <div class="ps-2 pt-4">
+                <a href="{{ request.META.HTTP_REFERER }}"><strong>Previous Page</strong></a>
+            </div>
+        </div>
+        <div class="col col-md-6 ps-4">
+            <h3 class="pb-3">Shipping information</h3>
+            <form action="{% url 'profile' %}" method="POST">
+                
+                {{ form|crispy }}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success my-3">Confirm</button>
+            </form>
+            <h3 class="pt-3">{{ confirm_msg }}</h3>
+        </div>
+        <div class="col col-md-3 offset-md-1">
+            <h3 class="pb-3">User information</h3>
+            <ul class="list-group">
+                <li type="text" class="list-group-item">Username: {{ request.user.username }}</li>
+                <li type="text" class="list-group-item">Email: {{ request.user.email }}</li>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 {% endblock %}
